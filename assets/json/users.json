@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "nombre": "Matias",
+        "email": "maerro@gmail.com",
+        "password": "uruguay",
+        "roll": "admin"
+    },
+    {
+        "id": 2,
+        "nombre": "jorge",
+        "email": "jorge@gmail.com",
+        "password": "hola",
+        "roll": "user"
+    },
+    {
+        "id": 3,
+        "nombre": "Pedro",
+        "email": "pedro@gmail.com",
+        "password": "chau",
+        "roll": "user"
+    }
+]

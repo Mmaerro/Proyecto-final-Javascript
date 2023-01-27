@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://kit.fontawesome.com/2cffc11397.js" crossorigin="anonymous"></script>
+    <title>Tienda</title>
+    <script src="./assets/Scripts/categorias.js" defer></script>
+    <script src="./assets/Scripts/estilos.js" defer></script>
+    <script src="./assets/Scripts/main.js" defer></script>
+    <script src="./assets/Scripts/user.js" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+</head>
+
+<body>
+    <nav>
+        <a href="#">Nosotros <i class="fa-solid fa-shop"></i></a>
+        <a href="#">Productos <i class="fa-solid fa-list"></i></a>
+        <a href="#" id="myBtn">Ingresar <i class="fa-solid fa-circle-user"></i></a>
+        <a href="#">Carrito <i class="fa-solid fa-bag-shopping"></i><span id="cart-count"></span></a>
+    </nav>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h4>INGRESAR</h4>
+            <form action="#" method="post">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" />
+                <label for="password">Contraseña</label>
+                <input id="pass" type="password" name="password" autocomplete="current-password" />
+                <input id="submit" type="submit" value="Enviar" />
+            </form>
+        </div>
+    </div>
+
+    <!-- <i class="fa-solid fa-receipt" ></i> -->
+    <header>
+        <div>
+            <p>TU</p>
+            <p>TIENDA</p>
+            <p>ONLINE!</p>
+        </div>
+    </header>
+
+    <div class="cat" id="cat">
+        <a href="">TODOS LOS PRODUCTOS</a>
+    </div>
+   
+    <section class="new-dropin"> 
+    <h4 class="title cate"></h4>
+    <div class="">
+            <div class="content-figure new">
+            </div>
+            <a href="#">Ver más<i class="colors fa-solid fa-plus"></i></a>
+        </div>
+    </section>
+    <div class="hola">
+
+    </div>
+    <section class="todos-products">
+        <h4 class="title"><span></span> TODOS LOS PRODUCTOS<span></span> </h4>
+        <div class="all">
+
+            <div class="todos">
+            </div>
+            <a href="#">Ver más<i class="colors fa-solid fa-plus"></i></a>
+        </div>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

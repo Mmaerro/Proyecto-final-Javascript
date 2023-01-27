@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nombre": "Remeras"
+    },
+    {
+        "id": 2,
+        "nombre": "Pantalones"
+    },
+    {
+        "id": 3,
+        "nombre": "Abrigos"
+    },
+    {
+        "id": 4,
+        "nombre": "Accesorios"
+    },
+    {
+        "id": 5,
+        "nombre": "Ropa interior"
+    },
+    {
+        "id": 6,
+        "nombre": "Calzado"
+    }
+]

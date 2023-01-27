@@ -44,3 +44,16 @@ window.onclick = function (event) {
 
   }
 }
+// document.getElementById('carrito').addEventListener('click', ()=> {
+//   Swal.fire({
+//     title: 'Error!',
+//    html: 'You can use <b>bold text</b>, ' +
+//    '<a href="//sweetalert2.github.io">links</a> ' +
+//    'and other HTML tags',
+//     icon: 'error',
+//     confirmButtonText: 'Cool'
+//   })
+// })
+
+
+

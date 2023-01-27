@@ -1,12 +1,13 @@
-const categorias = [],
-    prodCat = [];
+const categorias = [];
 class Categoria {
     constructor(categoria) {
         this.categoria = categoria;
     }
     mostrarCategorias() {
-        const card = `<a>${this.categoria}</a>`;
-
+        let cortado = this.categoria.split("'");
+        var primerPlabra = cortado[0];
+        const card = `<a href="#${primerPlabra}">${this.categoria}</a>`;
+      
         const container = document.getElementById('cat');
         container.innerHTML += card;
     }

@@ -11,7 +11,7 @@
     <script src="./assets/Scripts/categorias.js" defer></script>
     <script src="./assets/Scripts/estilos.js" defer></script>
     <script src="./assets/Scripts/main.js" defer></script>
-    <script src="./assets/Scripts/user.js" defer></script>
+    <script src="./assets/Scripts/carrito.js" defer></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 </head>
 
@@ -20,7 +20,7 @@
         <a href="#">Nosotros <i class="fa-solid fa-shop"></i></a>
         <a href="#">Productos <i class="fa-solid fa-list"></i></a>
         <a href="#" id="myBtn">Ingresar <i class="fa-solid fa-circle-user"></i></a>
-        <a href="#">Carrito <i class="fa-solid fa-bag-shopping"></i><span id="cart-count"></span></a>
+        <a href="#" id="carrito">Carrito <i class="fa-solid fa-bag-shopping"></i><span id="cart-count"></span></a>
     </nav>
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -44,23 +44,11 @@
             <p>ONLINE!</p>
         </div>
     </header>
-
+    <p>Precio total: <span id="precioTotal"></span></p>
     <div class="cat" id="cat">
-        <a href="">TODOS LOS PRODUCTOS</a>
+        <a href="#todos">TODOS LOS PRODUCTOS</a>
     </div>
-   
-    <section class="new-dropin"> 
-    <h4 class="title cate"></h4>
-    <div class="">
-            <div class="content-figure new">
-            </div>
-            <a href="#">Ver más<i class="colors fa-solid fa-plus"></i></a>
-        </div>
-    </section>
-    <div class="hola">
-
-    </div>
-    <section class="todos-products">
+    <section id="todos" class="todos-products">
         <h4 class="title"><span></span> TODOS LOS PRODUCTOS<span></span> </h4>
         <div class="all">
 

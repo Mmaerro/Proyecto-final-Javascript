@@ -2,7 +2,7 @@
     {
         "id": 1,
         "nombre": "Matias",
-        "email": "maerro@gmail.com",
+        "email": "admin@gmail.com",
         "password": "uruguay",
         "roll": "admin"
     },

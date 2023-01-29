@@ -31,45 +31,13 @@ class Producto {
   
   }
 
-  // productosCategorias() {
-  //   const catA = document.querySelectorAll('#cat a');
-  //   for (let value of catA) {
-
-  //     const titleCat = document.querySelector('.cate');
-  //     if (this.categoria == value.textContent) {
-
-  //       value.addEventListener('click', () => {
-  //         let idString = this.id.toString()
-  //         titleCat.innerHTML = '<span></span>' + this.categoria + '<span></span>';
-  //         const cards = `
-  //             <figure class="${idString}">
-  //             <img src="${this.image}" alt="">
-  //             <figcaption>${this.nombre}</figcaption>
-  //             <b>${this.categoria}</b>
-  //             <p>$ ${this.precio}</p>
-  //             <input type="submit" value="Agregar al Carrito" id="${this.id}">
-  //             </figure>
-  //         `;
-     
-  //         let cate = document.querySelector('.'.idString)
-  //         console.log(cate)
-  //         const container = document.querySelector('.new');
-  //           container.innerHTML += cards;
-  //         this.agregarEvento(this.id);
-  //        var hola = document.getElementById(this.id)
-  //        hola.addEventListener('click', ()=>{
-  //           console.log(hola);
-  //         })
-  //       });
-  //     }
-  //   }
-  // }
-  
   agregarEvento() {
-    const btnAgregar = document.getElementById(`${this.id}`);
-    const encontrarProducto = productos.find(prod => prod.id == this.id)
+    const btnAgregar = document.getElementById(`${this.id}`),
+          encontrarProducto = productos.find(prod => prod.id == this.id)
+          
     btnAgregar.addEventListener('click', () => agregarAlCarrito(encontrarProducto))
   }
+  
 
   // actualizarCarrito(){
   //   contenedorCarrito.innerHTML = "";
@@ -137,5 +105,3 @@ function agregarAlCarrito(producto) {
   countCart.innerHTML = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
 }
 countCart.innerHTML = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
-
-  

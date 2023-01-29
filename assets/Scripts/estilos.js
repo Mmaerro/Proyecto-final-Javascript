@@ -28,20 +28,48 @@ window.onscroll = function () {
 //  modal
 let modal = document.getElementById("myModal"),
     btn = document.getElementById("myBtn"),
-    span = document.getElementsByClassName("close")[0];
+    modalContent = document.querySelector(".modal-content"),
+    contentCard = document.querySelector(".content-card"),
+    caritss = document.querySelector("#carrito"),
+    body = document.querySelector('body');
 btn.onclick = function () {
+  let card = `
+  <form action="#" method="post">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" />
+      <label for="password">Contraseña</label>
+      <input id="pass" type="password" name="password" autocomplete="current-password" />
+      <input id="submit" type="submit" value="Enviar" />
+  </form>
+  `
+  contentCard.innerHTML = card;
   modal.style.display = "block";
   body.style.overflowY = 'hidden';
+
+  spanClose();
 }
-span.onclick = function () {
-  modal.style.display = "none";
-  body.style.overflowY = 'auto';
-}
+
+ 
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
     body.style.overflowY = 'auto';
+    contentCard.innerHTML = " ";
 
+  }
+}
+caritss.addEventListener('click', ()=>{
+  verEnCarrito();
+  spanClose();
+
+})
+
+function spanClose(){
+  let span = document.querySelector(".close")
+  span.onclick = function () {
+    modal.style.display = "none";
+    body.style.overflowY = 'auto';
+    modalContent.innerHTML = " ";
   }
 }
 // document.getElementById('carrito').addEventListener('click', ()=> {

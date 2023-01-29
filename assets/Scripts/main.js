@@ -2,7 +2,6 @@ const productos = [];
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [],
   countCart = document.querySelector('#cart-count');
 
-
 class Producto {
   constructor(id, nombre, precio, desc, categoria, image, rating) {
     this.id = id,
@@ -15,8 +14,8 @@ class Producto {
 
   }
   todosProductos() {
-    let cortado = this.categoria.split("'");
-    var primerPlabra = cortado[0];
+    let cortado = this.categoria.split("'"),
+        primerPlabra = cortado[0];
     const card = `
         <figure id="${primerPlabra}">
           <img src="${this.image}" alt="">
@@ -71,38 +70,38 @@ class Producto {
     const encontrarProducto = productos.find(prod => prod.id == this.id)
     btnAgregar.addEventListener('click', () => agregarAlCarrito(encontrarProducto))
   }
+
+  // actualizarCarrito(){
+  //   contenedorCarrito.innerHTML = "";
+  //   carrito.forEach((prod) => {
+  //     const div = document.createElement("div");
+  //     div.className = "carrito-productos";
+  //     div.innerHTML = `
+  //         <p>${prod.nombre}</p>
+  //         <p>Precio:$${prod.precio}</p>
+  //         <p>Cantidad: <span id="cantidad">${prod.cantidad}</span></p>
+  //         <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+  //         `;
   
-  actualizarCarrito(){
-    contenedorCarrito.innerHTML = "";
-    carrito.forEach((prod) => {
-      const div = document.createElement("div");
-      div.className = "carrito-productos";
-      div.innerHTML = `
-          <p>${prod.nombre}</p>
-          <p>Precio:$${prod.precio}</p>
-          <p>Cantidad: <span id="cantidad">${prod.cantidad}</span></p>
-          <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
-          `;
+  //     contenedorCarrito.appendChild(div);
   
-      contenedorCarrito.appendChild(div);
+  //     localStorage.setItem("carrito", JSON.stringify(carrito));
+  //   });
   
-      localStorage.setItem("carrito", JSON.stringify(carrito));
-    });
+  //   contadorCarrito.innerText = carrito.length;
   
-    contadorCarrito.innerText = carrito.length;
-  
-    console.log(carrito);
-    precioTotal.innerText = carrito.reduce(
-      (acc, prod) => acc + prod.cantidad * prod.precio,
-      0
-    );
-  };
+  //   console.log(carrito);
+  //   precioTotal.innerText = carrito.reduce(
+  //     (acc, prod) => acc + prod.cantidad * prod.precio,
+  //     0
+  //   );
+  // };
 }
 fetch('https://fakestoreapi.com/products')
   .then(res => res.json())
   .then(data => {
     data.forEach(prod => {
-      let newProd = new Producto(prod.id, prod.title, prod.price, prod.desciption, prod.category, prod.image, prod.rating)
+      let newProd = new Producto(prod.id, prod.title, prod.price, prod.description, prod.category, prod.image, prod.rating)
       productos.push(newProd)
     })
     productos.forEach(e => {

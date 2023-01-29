@@ -8,7 +8,7 @@
     },
     {
         "id": 2,
-        "nombre": "jorge",
+        "nombre": "Jorge",
         "email": "jorge@gmail.com",
         "password": "hola",
         "roll": "user"

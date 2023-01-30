@@ -38,32 +38,12 @@ class Producto {
     btnAgregar.addEventListener('click', () => agregarAlCarrito(encontrarProducto))
   }
   
-
-  // actualizarCarrito(){
-  //   contenedorCarrito.innerHTML = "";
-  //   carrito.forEach((prod) => {
-  //     const div = document.createElement("div");
-  //     div.className = "carrito-productos";
-  //     div.innerHTML = `
-  //         <p>${prod.nombre}</p>
-  //         <p>Precio:$${prod.precio}</p>
-  //         <p>Cantidad: <span id="cantidad">${prod.cantidad}</span></p>
-  //         <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
-  //         `;
-  
-  //     contenedorCarrito.appendChild(div);
-  
-  //     localStorage.setItem("carrito", JSON.stringify(carrito));
-  //   });
-  
-  //   contadorCarrito.innerText = carrito.length;
-  
-  //   console.log(carrito);
-  //   precioTotal.innerText = carrito.reduce(
-  //     (acc, prod) => acc + prod.cantidad * prod.precio,
-  //     0
-  //   );
-  // };
+  eliminarProdCarrito(){
+    const eliminarBtn = document.getElementById(`${this.id}`),
+    encontrarProducto = carrito.find(prod => prod.id == this.id)
+    
+    eliminarBtn.addEventListener('click', () => eliminarDelCarrito(encontrarProducto))
+  }
 }
 fetch('https://fakestoreapi.com/products')
   .then(res => res.json())
@@ -77,31 +57,71 @@ fetch('https://fakestoreapi.com/products')
     })
     productos.forEach(e => {
       e.agregarEvento()
-    })
+    })  
   })
   .catch(err => console.log(err))
 
+  function agregarAlCarrito(producto) {
+    const enCarrito = carrito.find(prod => prod.id === producto.id);
+    if (!enCarrito) {
+        carrito.push({
+            ...producto,
+            cantidad: 1
+        })
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+    } else {
+        let carritoFiltrado = carrito.filter(prod => prod.id != enCarrito.id)
+        carrito = [
+            ...carritoFiltrado,
+            {
+                ...enCarrito,
+                cantidad: enCarrito.cantidad + 1
+            }
 
-function agregarAlCarrito(producto) {
-  const enCarrito = carrito.find(prod => prod.id === producto.id);
-  if (!enCarrito) {
-    carrito.push({
-      ...producto,
-      cantidad: 1
-    })
-    localStorage.setItem('carrito', JSON.stringify(carrito))
-  } else {
-    let carritoFiltrado = carrito.filter(prod => prod.id != enCarrito.id)
-    carrito = [
-      ...carritoFiltrado,
-      {
-        ...enCarrito,
-        cantidad: enCarrito.cantidad + 1
-      }
-
-    ]
-    localStorage.setItem('carrito', JSON.stringify(carrito))
-  }
-  countCart.innerHTML = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
+        ]
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+    }
+    countCart.innerHTML = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
 }
 countCart.innerHTML = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
+
+function verEnCarrito() {
+  if(carrito.length !== 0){
+    let cardspan = `
+        <span class="close">&times;</span>
+        <h4>TUS PRODUCTOS</h4>
+        <p class="precio-total">Precio total:<b></b></p>
+    `
+    carrito.forEach((prod) => {
+        modal.style.display = 'block';
+        body.style.overflowY = 'hidden';
+        let card = `
+        <table class="table-cart">
+            <tr>
+                <td></td>
+                <td>Producto:</td>
+                <td>Precio: </td>
+                <td>Cantidad:</td>
+            </tr>
+            <tr class="cont-cart">
+                <td><img src="${prod.image}"></td>
+                <td>${prod.nombre}</td>
+                <td>$${prod.precio}</td>
+                <td class="cantidad">${prod.cantidad} </td>
+            </tr>
+        </table>
+
+        `
+        contentCard.innerHTML = cardspan += card
+    });
+
+    let totalPrice = document.querySelector('.precio-total')
+  
+      console.log(carrito);
+      totalPrice.innerText = 'Precio total: $' + carrito.reduce(
+        (acc, prod) => acc + prod.cantidad * prod.precio,
+        0
+    );
+    }
+    
+}

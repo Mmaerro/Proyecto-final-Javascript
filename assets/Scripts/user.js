@@ -38,6 +38,7 @@ function modalLogin(param) {
             <h4>INGRESAR</h4>
             `
         let card = `
+            <p class="warning">Correo o Contraseña invalida</p>
             <form action="">
             <label for="email">Email</label>
             <input id="email" type="email" name="email" />
@@ -58,7 +59,6 @@ function modalLogin(param) {
             const email = document.getElementById('email'),
                 pass = document.getElementById('password'),
                 userFilter = users.find(prod => prod.email === email.value);
-            console.log(userFilter);
             ingresar(userFilter, email.value, pass.value)
 
         })
@@ -80,18 +80,24 @@ function modalLogin(param) {
             salir.style.display = 'block';
             cerrar();
         } else {
-            console.log('none');
+            let warnin = document.querySelector('.warning')
+            warnin.style.marginLeft = '-10px';
+            warnin.style.visibility = 'visible';
+            setTimeout(function () {
+                warnin.style.marginLeft = '-1083px'
 
+            }, 2000);
         }
+
     }
 }
 let userEnSession = JSON.parse(sessionStorage.getItem('user'));
 if (userEnSession) {
+
     bienvenido.style.display = 'block';
     b.innerHTML = userEnSession.nombre
-    
     btn.style.display = 'none'
 }
-salir.addEventListener('click', () =>{
+salir.addEventListener('click', () => {
     sessionStorage.removeItem('user')
 })

@@ -41,12 +41,9 @@ function cerrar(){
 modalLogin();
 
 window.onclick = function (event) {
-  if (event.target == modal) {
-  cerrar();
-
-  }
+  event.target == modal && cerrar() ; 
 }
-caritss.addEventListener('click', () => {
+cart.addEventListener('click', () => {
   verEnCarrito();
   spanClose();
 
@@ -54,13 +51,10 @@ caritss.addEventListener('click', () => {
 
 function spanClose() {
   let span = document.querySelector(".close")
-  span.onclick = function () {
+  span.addEventListener('click',function () {
   cerrar();
-  }
+  })
 }
-
-
-
-// document.getElementById('carrito').addEventListener('click', ()=> {
-//   
-// })
+function warning(){
+ 
+}

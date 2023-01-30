@@ -14,6 +14,18 @@ body {
     background: #f2f2f2;
 }
 
+.warning
+{
+  position: relative;
+  transition: ease 1s;
+  margin-left: -1083px; 
+  width: fit-content;
+  color: white;
+  background-color: red;
+  padding: 5px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px #000 ;
+}
 nav {
     position: sticky;
     top: 0;
@@ -411,8 +423,32 @@ button,
     position: absolute;
     bottom: 10px;
     right: 10px;
+    border: 1px solid rgb(119, 119, 119);
+    padding: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 78, 146, 0.559);
 }
-
+.table-cart tr:first-child td{
+    padding: 0px;
+}
+.table-cart img{
+    max-width: 130px;
+}
+.cantidad{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cont-cart td{
+    padding: 15px;
+    justify-content: center;
+    
+}
+#menos{
+    margin-right: 10px;
+}
+.cont-cart span{
+    display: flex;
+}
 /* FOOTER */
 footer {
     background-color: #000;
@@ -523,24 +559,18 @@ footer {
 
 @media screen and (max-width: 790px) {
 
-    .todos-products {
-        width: 100vw;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: auto;
-    }
+
 
     .todos-products .todos {
-
         height: auto;
         display: flex;
         flex-direction: row;
+        justify-content: left;
         overflow-x: scroll;
         overflow-y: hidden;
-        padding-bottom: 10px;
         -webkit-overflow-scrolling: touch;
     }
+    
 
     header div {
         width: 100%;

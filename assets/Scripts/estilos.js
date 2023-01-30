@@ -30,7 +30,7 @@ window.onscroll = function () {
 let modal = document.getElementById("myModal"),
     modalContent = document.querySelector(".modal-content"),
     contentCard = document.querySelector(".content-card"),
-    caritss = document.querySelector("#carrito"),
+    cart = document.querySelector("#carrito"),
     body = document.querySelector('body');
 function cerrar(){
   modal.style.display = "none";
